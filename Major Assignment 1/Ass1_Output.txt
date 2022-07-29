@@ -1,0 +1,376 @@
+-- PART 1.10 OUTPUT--
+
+Student ID: 103433609
+---------------------------------------------
+Deleting all Customer rows
+0 rows deleted
+---------------------------------------------
+Deleting all Product rows
+0 rows deleted
+==========TEST ADD CUSTOMERS ==========================
+--------------------------------------------
+Adding Customer. ID: 1 Name: Colin Smith
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 2 Name: Jill Davis
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 3 Name: Dave Brown
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 4 Name: Kirsty Glass
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 1 Name: Jenny Nighy
+ORA-20017: Dulicate primary key
+--------------------------------------------
+Adding Customer. ID: -3 Name: Emma Jones
+ORA-20029: Customer ID out of range
+--------------------------------------------
+Adding Customer. ID: 666 Name: Peter White
+ORA-20029: Customer ID out of range
+==========TEST ADD PRODUCTS==========================
+--------------------------------------------
+Adding Product. ID: 1001 Name: ProdA Price: 10
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 1002 Name: ProdB Price: 20
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 1003 Name: ProdC Price: 35
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 1001 Name: ProdD Price: 10
+ORA-20037: Duplicate product ID
+--------------------------------------------
+Adding Product. ID: 3333 Name: ProdD Price: 100
+ORA-20049: Product ID out of range
+--------------------------------------------
+Adding Product. ID: 1004 Name: ProdD Price: 1234
+ORA-20056: Price out of range
+===========TEST STATUS UPDATES ==========================
+-------------------------------------------
+Updating Status. ID:3 New Status:SUSPEND
+Update OK
+-------------------------------------------
+Updating Status. ID:4 New Status:QWERTY
+ORA-20139: Invalid Status value
+===========TEST CUSTOMER RETREIVAL ==========================
+---------------------------------------------
+Getting Details for CustId 1
+CustId:1 Name:Colin Smith Status:OK SalesYTD:0
+---------------------------------------------
+Getting Details for CustId 2
+CustId:2 Name:Jill Davis Status:OK SalesYTD:0
+---------------------------------------------
+Getting Details for CustId 22
+ORA-20067: Customer ID not found
+===========TEST CUSTOMER RETREIVAL ==========================
+---------------------------------------------
+Getting Details for Prod Id 1001
+Prodid:1001 Name:ProdA Price:10 SalesYTD:0
+---------------------------------------------
+Getting Details for Prod Id 1002
+Prodid:1002 Name:ProdB Price:20 SalesYTD:0
+---------------------------------------------
+Getting Details for Prod Id 2222
+ORA-20097: Product ID not found
+===========TEST SIMPLE SALES ==========================
+-------------------------------------------
+Adding Simple Sale. Custi Id:1 Prod Id:1001 Qty:15
+Added Simple Sale OK
+-------------------------------------------
+Adding Simple Sale. Custi Id:2 Prod Id:1002 Qty:37
+Added Simple Sale OK
+-------------------------------------------
+Adding Simple Sale. Custi Id:3 Prod Id:1002 Qty:15
+ORA-20159: Customer Status is not OK
+-------------------------------------------
+Adding Simple Sale. Custi Id:4 Prod Id:1001 Qty:100
+Added Simple Sale OK
+--------------------------------------------
+Summing Customer SalesYTD
+All Customer Total: 1890
+--------------------------------------------
+Summing Product SalesYTD
+All Product Total: 1890
+===========MORE TESTING OF SIMPLE SALES ==========================
+-------------------------------------------
+Adding Simple Sale. Custi Id:99 Prod Id:1002 Qty:60
+ORA-20000: ORA-01403: no data found
+-------------------------------------------
+Adding Simple Sale. Custi Id:2 Prod Id:5555 Qty:60
+ORA-20000: ORA-01403: no data found
+-------------------------------------------
+Adding Simple Sale. Custi Id:1 Prod Id:1002 Qty:6666
+ORA-20147: Sale Quantity outside valid range
+--------------------------------------------
+Summing Customer SalesYTD
+All Customer Total: 1890
+--------------------------------------------
+Summing Product SalesYTD
+All Product Total: 1890
+==========LIST ALL CUSTOMERS AND PRODUCTS==========================
+---------------------------------------------
+Getting Details for CustId 1
+CustId:1 Name:Colin Smith Status:OK SalesYTD:150
+---------------------------------------------
+Getting Details for CustId 2
+CustId:2 Name:Jill Davis Status:OK SalesYTD:740
+---------------------------------------------
+Getting Details for CustId 3
+CustId:3 Name:Dave Brown Status:SUSPEND SalesYTD:0
+---------------------------------------------
+Getting Details for CustId 4
+CustId:4 Name:Kirsty Glass Status:OK SalesYTD:1000
+---------------------------------------------
+Getting Details for Prod Id 1001
+Prodid:1001 Name:ProdA Price:10 SalesYTD:1150
+---------------------------------------------
+Getting Details for Prod Id 1002
+Prodid:1002 Name:ProdB Price:20 SalesYTD:740
+---------------------------------------------
+Getting Details for Prod Id 1003
+Prodid:1003 Name:ProdC Price:35 SalesYTD:0
+
+
+
+----------------------
+
+
+
+--PART 2 OUTPUT--
+
+Student ID: 103433609
+==========PART 2 TEST CURSOR==========================
+-------------------------------------------
+Listing All Customer Details
+CustId:4 Name:Kirsty Glass Status:OK SalesYTD:1000
+CustId:1 Name:Colin Smith Status:OK SalesYTD:150
+CustId:2 Name:Jill Davis Status:OK SalesYTD:740
+CustId:3 Name:Dave Brown Status:SUSPEND SalesYTD:0
+-------------------------------------------
+Listing All Product Details
+ProdId:1003 Name:ProdC Price:35 SalesYTD:0
+ProdId:1001 Name:ProdA Price:10 SalesYTD:1150
+ProdId:1002 Name:ProdB Price:20 SalesYTD:740
+
+-----------------
+
+--PART 3 OUTPUT--
+
+Student ID: 103433609
+==========PART 3 TEST LOCATIONS==========================
+--------------------------------------------
+Adding Location LocCode: AF201 MinQty: 1 MaxQty: 2
+Location Added OK
+--------------------------------------------
+Adding Location LocCode: AF202 MinQty: -3 MaxQty: 4
+ORA-20083: Minimum Qty out of range
+--------------------------------------------
+Adding Location LocCode: AF203 MinQty: 5 MaxQty: 1
+ORA-20086: Minimum qty larger than maximum qty
+--------------------------------------------
+Adding Location LocCode: AF204 MinQty: 6 MaxQty: 7000
+ORA-20084: Maximum Qty out of range
+--------------------------------------------
+Adding Location LocCode: AF20111 MinQty: 8 MaxQty: 9
+ORA-20082:  Location Code length invalid
+
+--------------------
+
+--PART 4 OUTPUT--
+
+--------------------------------------------
+Adding Customer. ID: 10 Name: Mieko Hayashi
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 11 Name: John Kalia
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 12 Name: Alex Kim
+Customer Added OK
+--------------------------------------------
+Adding Product. ID: 2001 Name: Chair Price: 10
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 2002 Name: Table Price: 45
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 2003 Name: Lamp Price: 22
+Product Added OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:10 Prod Id:2001 Date:20140301 Amt:6
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:10 Prod Id:2002 Date:20140320 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:11 Prod Id:2001 Date:20140301 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:11 Prod Id:2003 Date:20140215 Amt:2
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:20140131 Amt:10
+Added Complex Sale OK
+-------------------------------------------
+Counting sales within 3082.840960648148148148148148148148148148 days
+Total number of sales: 5
+-------------------------------------------
+Counting sales within 3051.840960648148148148148148148148148148 days
+Total number of sales: 4
+-------------------------------------------
+Listing All Sales Details
+SaleId:89 CustId:11 ProdId:2001 Date:01-MAR-14 Amount:1
+SaleId:90 CustId:11 ProdId:2003 Date:15-FEB-14 Amount:2
+SaleId:91 CustId:12 ProdId:2001 Date:31-JAN-14 Amount:10
+SaleId:87 CustId:10 ProdId:2001 Date:01-MAR-14 Amount:6
+SaleId:88 CustId:10 ProdId:2002 Date:20-MAR-14 Amount:1
+-------------------------------------------
+Adding Complex Sale. Cust Id:99 Prod Id:2001 Date:20140131 Amt:10
+ORA-20262: Customer ID not found
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:9999 Date:20140131 Amt:10
+ORA-20274: Product ID not found
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:20140131 Amt:9999
+ORA-20237: Sale Quantity outside valid range
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:99999999 Amt:10
+ORA-20000: ORA-01843: not a valid month
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:20141331 Amt:10
+ORA-20000: ORA-01843: not a valid month
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:20140132 Amt:10
+ORA-20000: ORA-01847: day of month must be between 1 and last day of month
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:20140 Amt:10
+ORA-20256: Date not valid
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:201401311 Amt:10
+ORA-20256: Date not valid
+-------------------------------------------
+Updating Status. ID:12 New Status:SUSPEND
+Update OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2002 Date:20140131 Amt:10
+ORA-20249: Customer status is not OK
+
+--PART 5 OUTPUT--
+
+--------------------------------------------
+Adding Customer. ID: 10 Name: Mieko Hayashi
+ORA-20017: Dulicate primary key
+--------------------------------------------
+Adding Customer. ID: 11 Name: John Kalia
+ORA-20017: Dulicate primary key
+--------------------------------------------
+Adding Customer. ID: 12 Name: Alex Kim
+ORA-20017: Dulicate primary key
+--------------------------------------------
+Adding Product. ID: 2001 Name: Chair Price: 10
+ORA-20037: Duplicate product ID
+--------------------------------------------
+Adding Product. ID: 2002 Name: Table Price: 45
+ORA-20037: Duplicate product ID
+--------------------------------------------
+Adding Product. ID: 2003 Name: Lamp Price: 22
+ORA-20037: Duplicate product ID
+-------------------------------------------
+Adding Complex Sale. Cust Id:10 Prod Id:2001 Date:20140301 Amt:6
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:10 Prod Id:2002 Date:20140320 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:11 Prod Id:2001 Date:20140301 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:11 Prod Id:2003 Date:20140215 Amt:2
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:12 Prod Id:2001 Date:20140131 Amt:10
+ORA-20249: Customer status is not OK
+-------------------------------------------
+Counting sales within 8166.653159722222222222222222222222222222 days
+Total number of sales: 4
+-------------------------------------------
+Listing All Sales Details
+SaleId:98 CustId:11 ProdId:2001 Date:01-MAR-14 Amount:1
+SaleId:99 CustId:11 ProdId:2003 Date:15-FEB-14 Amount:2
+SaleId:96 CustId:10 ProdId:2001 Date:01-MAR-14 Amount:6
+SaleId:97 CustId:10 ProdId:2002 Date:20-MAR-14 Amount:1
+--------------------------------------------
+Deleting Sale with smallest SaleId value
+Deleted Sale OK. SaleID:96
+-------------------------------------------
+Listing All Sales Details
+SaleId:98 CustId:11 ProdId:2001 Date:01-MAR-14 Amount:1
+SaleId:99 CustId:11 ProdId:2003 Date:15-FEB-14 Amount:2
+SaleId:97 CustId:10 ProdId:2002 Date:20-MAR-14 Amount:1
+--------------------------------------------
+Deleting Sale with smallest SaleId value
+Deleted Sale OK. SaleID:97
+-------------------------------------------
+Listing All Sales Details
+SaleId:98 CustId:11 ProdId:2001 Date:01-MAR-14 Amount:1
+SaleId:99 CustId:11 ProdId:2003 Date:15-FEB-14 Amount:2
+---------------------------------------------
+Deleting all Sales data in Sale, Customer, and Product tables
+Deletion OK
+-------------------------------------------
+Listing All Sales Details
+
+--PART 6 OUTPUT--
+
+--------------------------------------------
+Adding Customer. ID: 17 Name: Stephen Ward
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 18 Name: Lisa Church
+Customer Added OK
+--------------------------------------------
+Adding Customer. ID: 19 Name: Joel Pairman
+Customer Added OK
+--------------------------------------------
+Adding Product. ID: 2005 Name: Desk Price: 195
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 2006 Name: Footrest Price: 20
+Product Added OK
+--------------------------------------------
+Adding Product. ID: 2007 Name: Bookcase Price: 85
+Product Added OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:17 Prod Id:2005 Date:20140302 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:17 Prod Id:2006 Date:20140303 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Adding Complex Sale. Cust Id:19 Prod Id:2005 Date:20140304 Amt:1
+Added Complex Sale OK
+-------------------------------------------
+Deleting Customer. Cust Id:17
+ORA-20292: Child Record found
+-------------------------------------------
+Deleting Customer. Cust Id:18
+Delete Customer OK
+-------------------------------------------
+Deleting Customer. Cust Id:19
+ORA-20292: Child Record found
+-------------------------------------------
+Deleting Product. Product Id:2005
+ORA-20292: Child Record found
+-------------------------------------------
+Deleting Product. Product Id:2006
+ORA-20292: Child Record found
+-------------------------------------------
+Deleting Product. Product Id:2007
+Delete Product OK
+
+
+
+
